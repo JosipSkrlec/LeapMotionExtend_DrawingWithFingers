@@ -809,6 +809,7 @@ public class LeapDohvatPodataka : MonoBehaviour
             catch (Exception err)
             {
                 // print(err.ToString());
+                string a = err.Message;
                 //Debug.Log("Error kod ReceiveDataOnce : " + err.Message);
             }
 

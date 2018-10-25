@@ -17,4 +17,7 @@ public class Proba1 : MonoBehaviour {
     {
         Debug.Log("asdasdasd");
     }
+
+
+
 }

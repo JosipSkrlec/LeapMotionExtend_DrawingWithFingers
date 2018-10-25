@@ -25,10 +25,12 @@ namespace Leap.Unity {
     private const float CYLINDER_RADIUS = 0.006f;
     private const float PALM_RADIUS = 0.015f;
 
-    private static int _leftColorIndex = 0;
-    private static int _rightColorIndex = 0;
-    private static Color[] _leftColorList = { new Color(0.0f, 0.0f, 1.0f), new Color(0.2f, 0.0f, 0.4f), new Color(0.0f, 0.2f, 0.2f) };
-    private static Color[] _rightColorList = { new Color(1.0f, 0.0f, 0.0f), new Color(1.0f, 1.0f, 0.0f), new Color(1.0f, 0.5f, 0.0f) };
+    //private static int _leftColorIndex = 0;
+    //private static int _rightColorIndex = 0;
+    //private static Color[] _leftColorList = { new Color(0.0f, 0.0f, 1.0f), new Color(0.2f, 0.0f, 0.4f), new Color(0.0f, 0.2f, 0.2f) };
+    //private static Color[] _rightColorList = { new Color(1.0f, 0.0f, 0.0f), new Color(1.0f, 1.0f, 0.0f), new Color(1.0f, 0.5f, 0.0f) };
+    private static Color leftColor = new Color(0.0f, 0.0f, 0.0f,0.0f);
+    private static Color rightColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
 
     [SerializeField]
     private Chirality handedness;
@@ -36,8 +38,8 @@ namespace Leap.Unity {
     [SerializeField]
     private bool _showArm = true;
 
-    [SerializeField]
-    private Material _material;
+    //[SerializeField]
+    //private Material _material;
 
     [SerializeField]
     private Mesh _sphereMesh;
@@ -46,9 +48,12 @@ namespace Leap.Unity {
     [SerializeField]
     private int _cylinderResolution = 12;
 
+    [SerializeField]
     private Material _sphereMat;
     private Hand _hand;
     private Vector3[] _spherePositions;
+
+    //private Material _matt;
 
     public override ModelType HandModelType {
       get {
@@ -76,10 +81,10 @@ namespace Leap.Unity {
     }
 
     public override void InitHand() {
-      if (_material != null) {
-        _sphereMat = new Material(_material);
-        _sphereMat.hideFlags = HideFlags.DontSaveInEditor;
-      }
+      //if (_material != null) {
+      //  _sphereMat = new Material(_material);
+      //  _sphereMat.hideFlags = HideFlags.DontSaveInEditor;
+      //}
     }
 
     private void OnValidate() {
@@ -90,14 +95,33 @@ namespace Leap.Unity {
       base.BeginHand();
 
       if (_hand.IsLeft) {
+        try
+        {
+            _sphereMat = new Material(_sphereMat);
+            _sphereMat.color = leftColor;
+        }
+        catch (UnassignedReferenceException ex)
+        {
+                    string a = ex.Message;
+        }
+                //_sphereMat.SetColor("name",leftColor);
+                //_sphereMat.color = new Color();
+                //_leftColorIndex = (_leftColorIndex + 1) % _leftColorList.Length;
 
-        _sphereMat.color = _leftColorList[_leftColorIndex];
-        _leftColorIndex = (_leftColorIndex + 1) % _leftColorList.Length;
+        } else {
+            try
+            {
+                _sphereMat = new Material(_sphereMat);
+                _sphereMat.color = rightColor;
+            }
+            catch (UnassignedReferenceException ex )
+            {
+                    string b = ex.Message;
+                }
+            //_rightColorIndex = (_rightColorIndex + 1) % _rightColorList.Length;
 
-      } else {
-        _sphereMat.color = _rightColorList[_rightColorIndex];
-        _rightColorIndex = (_rightColorIndex + 1) % _rightColorList.Length;
-      }
+        }
+
     }
 
     public override void UpdateHand() {
@@ -106,8 +130,12 @@ namespace Leap.Unity {
       }
 
       if (_sphereMat == null) {
-        _sphereMat = new Material(_material);
-        _sphereMat.hideFlags = HideFlags.DontSaveInEditor;
+        //try
+        //{
+        //    _sphereMat = new Material(_material);
+        //    _sphereMat.hideFlags = HideFlags.DontSaveInEditor;
+        //}
+        //catch (Exception e) { };
       }
 
       //Update all joint spheres in the fingers
@@ -198,10 +226,10 @@ namespace Leap.Unity {
     private void drawCylinder(Vector3 a, Vector3 b) {
       float length = (a - b).magnitude;
 
-      Graphics.DrawMesh(getCylinderMesh(length),
-                        Matrix4x4.TRS(a, Quaternion.LookRotation(b - a), Vector3.one),
-                        _material,
-                        gameObject.layer);
+      //Graphics.DrawMesh(getCylinderMesh(length),
+      //                  Matrix4x4.TRS(a, Quaternion.LookRotation(b - a), Vector3.one),
+      //                  _material,
+      //                  gameObject.layer);
     }
 
     private void drawCylinder(int a, int b) {

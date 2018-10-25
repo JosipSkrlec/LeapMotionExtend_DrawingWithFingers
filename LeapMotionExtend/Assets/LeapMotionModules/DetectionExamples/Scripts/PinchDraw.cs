@@ -29,6 +29,9 @@ namespace Leap.Unity.DetectionExamples {
 
     private DrawState[] _drawStates;
 
+    public bool PromjenaBojeSvakihPetSekundi;
+    public bool PromjenaBojePostepeno;
+
     public Color DrawColor {
       get {
         return _drawColor;
@@ -66,8 +69,31 @@ namespace Leap.Unity.DetectionExamples {
       }
     }
 
+    float vrijeme = 0.0f;
+    float R = 0.0f;
+    float G = 0.0f;
+    float B = 0.0f;
+    float A = 0.0f;
+
     void Update() {
-      for (int i = 0; i < _pinchDetectors.Length; i++) {
+
+        vrijeme += Time.deltaTime;
+
+        if (vrijeme > 5 && PromjenaBojeSvakihPetSekundi == true)
+        {
+            PromjeniBojuSvaihPetSek();
+            vrijeme = 0.0f;
+        }
+
+            if (vrijeme > 0.5 && PromjenaBojePostepeno == true)
+        {
+            PromjeniBojuSvaihPetSek2();
+            vrijeme = 0.0f;
+        }
+
+
+
+        for (int i = 0; i < _pinchDetectors.Length; i++) {
         var detector = _pinchDetectors[i];
         var drawState = _drawStates[i];
 
@@ -84,6 +110,53 @@ namespace Leap.Unity.DetectionExamples {
         }
       }
     }
+
+    void PromjeniBojuSvaihPetSek()
+    {
+        float R = Random.Range(0, 255);
+        float G = Random.Range(0, 255);
+        float B = Random.Range(0, 255);
+        float A = Random.Range(0, 255);
+
+        _drawColor.g = G / 255;
+        _drawColor.r = R / 255;
+        _drawColor.b = B / 255;
+        _drawColor.a = A / 255;
+
+    }
+
+    void PromjeniBojuSvaihPetSek2()
+    {
+            //Debug.Log("A = " + A);
+            if (A == 255 || B == 255 || R == 255 || G==255)
+            {
+                A = 0;
+                B = 0;
+                G = 0;
+                R = 0;
+            }
+            if(A != 255)
+            {
+                A += 15;
+            }
+            if (B != 255)
+            {
+                B += 15;
+            }
+            if (R != 255)
+            {
+                R += 15;
+            }
+            if (G != 255)
+            {
+              G += 15;
+            }
+            _drawColor.g = G / 255;
+            _drawColor.r = R / 255;
+            _drawColor.b = B / 255;
+            _drawColor.a = A / 255;
+
+        }
 
     private class DrawState {
       private List<Vector3> _vertices = new List<Vector3>();
@@ -226,12 +299,13 @@ namespace Leap.Unity.DetectionExamples {
       }
 
       private void addVertexRing() {
-        for (int i = 0; i < _parent._drawResolution; i++) {
-          _vertices.Add(Vector3.zero);  //Dummy vertex, is updated later
-          _uvs.Add(new Vector2(i / (_parent._drawResolution - 1.0f), 0));
-          _colors.Add(_parent._drawColor);
+            for (int i = 0; i < _parent._drawResolution; i++)
+            {
+                _vertices.Add(Vector3.zero);  //Dummy vertex, is updated later
+                _uvs.Add(new Vector2(i / (_parent._drawResolution - 1.0f), 0));
+                _colors.Add(_parent._drawColor);
+            }
         }
-      }
 
       //Connects the most recently added vertex ring to the one before it
       private void addTriSegment() {
