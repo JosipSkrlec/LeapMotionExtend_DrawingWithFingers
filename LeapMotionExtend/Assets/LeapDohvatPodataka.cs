@@ -364,6 +364,14 @@ public class LeapDohvatPodataka : MonoBehaviour
         }
     } // metoda
 
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.name == "Cube")
+    //    {
+    //        Debug.Log("asdads");
+    //    }
+    //}
+
     void IscrtajRuke(List<Hand> hands, List<GameObject> zgloboviIKosti, bool localData)
     {
 
@@ -417,6 +425,7 @@ public class LeapDohvatPodataka : MonoBehaviour
 
                 // TYPE_THUMB = = 0 - TYPE_INDEX = = 1 - TYPE_MIDDLE = = 2 - TYPE_RING = = 3 - TYPE_PINKY = = 4 -
                 GameObject k = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                //k.GetComponent<SphereCollider>().isTrigger = true;
                 k.transform.position = Leap2UnityVector(f.TipPosition);
                 k.transform.localScale = new Vector3(zglobVelicina, zglobVelicina, zglobVelicina);
                 if (zgloboviObojani) k.GetComponent<Renderer>().material.color = bojaZgloba;

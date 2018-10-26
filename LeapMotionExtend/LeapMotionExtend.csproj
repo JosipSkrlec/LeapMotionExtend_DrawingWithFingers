@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.6.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -289,7 +291,6 @@
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\PinchDraw.cs" />
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\SpawnBalls.cs" />
     <Compile Include="Assets\Proba1.cs" />
-    <Compile Include="Assets\PromjenaBoje.cs" />
     <Compile Include="Assets\trigger.cs" />
   </ItemGroup>
   <ItemGroup>
