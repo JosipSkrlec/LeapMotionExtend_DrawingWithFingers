@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 3}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -41,10 +41,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 683, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 681, y: 342}
+  m_MaxSize: {x: 12006, y: 8042}
   vertical: 1
-  controlID: 84
+  controlID: 49
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -129,10 +129,10 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 947
-  m_MinSize: {x: 683, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 681, y: 342}
+  m_MaxSize: {x: 12006, y: 8042}
   vertical: 0
-  controlID: 85
+  controlID: 50
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -153,10 +153,10 @@ MonoBehaviour:
     y: 0
     width: 1362
     height: 947
-  m_MinSize: {x: 406, y: 492}
-  m_MaxSize: {x: 10002, y: 14042}
+  m_MinSize: {x: 404, y: 342}
+  m_MaxSize: {x: 8004, y: 8042}
   vertical: 1
-  controlID: 86
+  controlID: 51
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -177,10 +177,10 @@ MonoBehaviour:
     y: 0
     width: 1362
     height: 586
-  m_MinSize: {x: 406, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
+  m_MinSize: {x: 404, y: 221}
+  m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 87
+  controlID: 52
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -199,8 +199,8 @@ MonoBehaviour:
     y: 0
     width: 408
     height: 586
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -251,14 +251,14 @@ MonoBehaviour:
     y: 586
     width: 1362
     height: 361
-  m_MinSize: {x: 232, y: 271}
-  m_MaxSize: {x: 10002, y: 10021}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 17}
   - {fileID: 18}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -388,9 +388,9 @@ MonoBehaviour:
     height: 565
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 6e080000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: d4fbffffe0fbffff00000000d82b0000
+    m_ExpandedIDs: 3e5febff2eafeeff32afeeff82b0eeff86b0eeff96b0eeff56b2eeff5ab2eeff1cd1faff22d1faffe0fbffff00000000422b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -440,14 +440,14 @@ MonoBehaviour:
     width: 950
     height: 565
   m_SceneLighting: 1
-  lastFramingTime: 728.7803846671768
+  lastFramingTime: 3950.798432041659
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.43277514, y: -0.9291766, z: 2.5288558}
+    m_Target: {x: 0.103462115, y: 0.2381295, z: 0.058636427}
     speed: 2
-    m_Value: {x: 0.43277514, y: -0.9291766, z: 2.5288558}
+    m_Value: {x: 0.103462115, y: 0.2381295, z: 0.058636427}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -470,13 +470,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.22044633, y: -0.073074475, z: 0.016564619, w: -0.972517}
+    m_Target: {x: -0.06534976, y: 0.020954978, z: -0.0013721093, w: -0.9976415}
     speed: 2
-    m_Value: {x: -0.22044632, y: -0.073074475, z: 0.016564619, w: -0.97251695}
+    m_Value: {x: -0.06534976, y: 0.020954978, z: -0.0013721093, w: -0.9976415}
   m_Size:
-    m_Target: 3.7763307
+    m_Target: 0.9594443
     speed: 2
-    m_Value: 3.7763307
+    m_Value: 0.9594443
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -550,19 +550,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/materials
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/materials
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Korisnik\Desktop\LeapMotionExtend- Drawing\LeapMotionExtend
+  m_LastProjectPath: C:\Users\Korisnik\Desktop\LeapMotionExtend- Drawing - Copy\LeapMotionExtend
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 95}
-    m_SelectedIDs: ca260000
-    m_LastClickedID: 9930
-    m_ExpandedIDs: 00000000ca2600001e27000094270000b0270000e62700002a28000046280000602800009a280000ac280000e02800000c290000d02900000a2a000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 605}
+    m_SelectedIDs: 12270000
+    m_LastClickedID: 10002
+    m_ExpandedIDs: 00000000c82600001c27000092270000ae270000e427000028280000442800005e28000098280000aa280000de2800000a290000ce290000082a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -590,7 +590,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ca2600001e27000094270000b0270000e62700002a28000046280000602800009a280000ac280000e02800000c290000d02900000a2a0000
+    m_ExpandedIDs: 00000000c82600001c27000092270000ae270000e427000028280000442800005e28000098280000aa280000de2800000a290000ce290000082a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -615,8 +615,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: e42b0000
+    m_LastClickedInstanceID: 11236
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 6e27000000000000
     m_RenameOverlay:
