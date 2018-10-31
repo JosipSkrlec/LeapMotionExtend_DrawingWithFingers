@@ -77,17 +77,18 @@ namespace Leap.Unity.DetectionExamples {
         public bool PromjenaBojeSvakihPetSekundi;
         public bool PromjenaBojePostepeno;
         public bool PromjenaBojeSliders;
+        // TODO - razdaljina od leap-a takva boja!
         public GameObject ShowColor;
 
         public Slider RBojaSlider;
         public Slider GBojaSlider;
         public Slider BBojaSlider;
-        public Slider ABojaSlider;
+        public Slider SizeSlider;
 
         float TempR;
         float TempG;
         float TempB;
-        float TempA;
+        float TempSize;
 
         //
 
@@ -106,6 +107,8 @@ namespace Leap.Unity.DetectionExamples {
                 PromjeniBojuSvaihPetSek2();
                 vrijeme = 0.0f;
             }
+
+
             if (PromjenaBojeSliders == true)
             {
 
@@ -117,10 +120,11 @@ namespace Leap.Unity.DetectionExamples {
                 RBojaSlider.gameObject.SetActive(false);
                 GBojaSlider.gameObject.SetActive(false);
                 BBojaSlider.gameObject.SetActive(false);
-                ABojaSlider.gameObject.SetActive(false);
+                SizeSlider.gameObject.SetActive(false);
             }
 
             //
+
 
             for (int i = 0; i < _pinchDetectors.Length; i++) {
             var detector = _pinchDetectors[i];
@@ -139,21 +143,21 @@ namespace Leap.Unity.DetectionExamples {
             }
           }
         }
+
         // DODANO NAKNADNO
         void PromjenaBojeSaSliderima()
         {
             TempR = RBojaSlider.value;
             TempG = GBojaSlider.value;
             TempB = BBojaSlider.value;
-            TempA = ABojaSlider.value;
+            TempSize = SizeSlider.value;
 
             _drawColor.r = TempR / 255;
             _drawColor.g = TempG / 255;
             _drawColor.b = TempB / 255;
-            _drawColor.a = TempA / 255;
 
-
-            ShowColor.GetComponent<Renderer>().material.color = new Color(TempR / 255, TempG / 255, TempB / 255, TempA / 255); 
+            _drawRadius = TempSize * 0.001f;
+            ShowColor.GetComponent<Renderer>().material.color = new Color(TempR / 255, TempG / 255, TempB / 255); 
         }
 
         void PromjeniBojuSvaihPetSek()

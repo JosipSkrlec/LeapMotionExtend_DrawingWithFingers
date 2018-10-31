@@ -3,18 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Proba1 : MonoBehaviour {
+public class Proba1 : MonoBehaviour
+{
 
     public GameObject Kocka;
     // Use this for initialization
     public static List<GameObject> iscrtanelinije = new List<GameObject>();
 
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    float a = 0.0f;
+
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         //if (Kocka.transform.position.x != 0 || Kocka.transform.position.y != 0.311f || Kocka.transform.position.z !=0)
         //{
@@ -27,17 +32,15 @@ public class Proba1 : MonoBehaviour {
         //    Kocka.transform.rotation = Quaternion.identity;
         //}
 
-	}
-    float a = 0.0f;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.name.Contains("Vrh"))
         {
             a += Time.deltaTime;
 
-            if(a > 5)
+            if (a > 5)
             {
                 foreach (GameObject g in iscrtanelinije)
                 {
@@ -48,15 +51,7 @@ public class Proba1 : MonoBehaviour {
 
 
         }
-
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        a = 0.0f;
-    }
-
-
 
 
     // PROBA1
@@ -97,6 +92,5 @@ public class Proba1 : MonoBehaviour {
     //}
 
 
-
-
 }
+
