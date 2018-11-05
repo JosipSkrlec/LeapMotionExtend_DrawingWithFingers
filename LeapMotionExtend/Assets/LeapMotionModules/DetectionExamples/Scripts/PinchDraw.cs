@@ -96,19 +96,17 @@ namespace Leap.Unity.DetectionExamples {
             // DODANO NAKNADNO
             vrijeme += Time.deltaTime;
 
+            // ukoliko je vrijeme u sekundama vece od 5 te public bool varijabla check
             if (vrijeme > 5 && PromjenaBojeSvakihPetSekundi == true)
             {
                 PromjeniBojuSvaihPetSek();
                 vrijeme = 0.0f;
-            }
-
-                if (vrijeme > 0.5 && PromjenaBojePostepeno == true)
+            }            
+            if (vrijeme > 0.5 && PromjenaBojePostepeno == true)
             {
                 PromjeniBojuSvaihPetSek2();
                 vrijeme = 0.0f;
             }
-
-
             if (PromjenaBojeSliders == true)
             {
 
