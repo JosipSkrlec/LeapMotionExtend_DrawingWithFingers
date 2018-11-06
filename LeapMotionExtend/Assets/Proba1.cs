@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Proba1 : MonoBehaviour
 {
-
-    public GameObject Kocka;
     // Use this for initialization
     public static List<GameObject> iscrtanelinije = new List<GameObject>();
 

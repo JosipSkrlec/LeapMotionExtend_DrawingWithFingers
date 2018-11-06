@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Leap.Unity.DetectionExamples;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,7 +27,9 @@ public class LMSlider2DKontrola : MonoBehaviour {
         tempG = SliderG.transform.position.x * 614/255;
         tempB = SliderB.transform.position.x * 614/255;
 
-        Debug.Log(" R " + tempR + ". G " + tempG + ". B " + tempB + ".");
+        PinchDraw.virtualTempR = tempR;
+        PinchDraw.virtualTempG = tempG;
+        PinchDraw.virtualTempB = tempB;
 
         ShowColor.GetComponent<Renderer>().material.color = new Color(tempR, tempG , tempB );
 

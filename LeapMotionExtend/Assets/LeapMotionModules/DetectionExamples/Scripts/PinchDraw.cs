@@ -77,8 +77,10 @@ namespace Leap.Unity.DetectionExamples {
         public bool PromjenaBojeSvakihPetSekundi;
         public bool PromjenaBojePostepeno;
         public bool PromjenaBojeSliders;
+        public bool PromjenaBojeSSvirtualnimSliderima;
         // TODO - razdaljina od leap-a takva boja!
         public GameObject ShowColor;
+        public GameObject PanelSaSLiderima;
 
         public Slider RBojaSlider;
         public Slider GBojaSlider;
@@ -91,11 +93,25 @@ namespace Leap.Unity.DetectionExamples {
         float TempSize;
 
         //
+        public static float virtualTempR = 0.0f;
+        public static float virtualTempG = 0.0f;
+        public static float virtualTempB = 0.0f;
+
 
         void Update() {
             // DODANO NAKNADNO
             vrijeme += Time.deltaTime;
-
+            if (PromjenaBojeSSvirtualnimSliderima == true)
+            {
+                PanelSaSLiderima.gameObject.SetActive(true);
+                _drawColor.r = virtualTempR;
+                _drawColor.g = virtualTempG;
+                _drawColor.b = virtualTempB;
+            }
+            else if (PromjenaBojeSSvirtualnimSliderima == false)
+            {
+                PanelSaSLiderima.gameObject.SetActive(false);
+            }
             // ukoliko je vrijeme u sekundama vece od 5 te public bool varijabla check
             if (vrijeme > 5 && PromjenaBojeSvakihPetSekundi == true)
             {

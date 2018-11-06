@@ -290,6 +290,7 @@
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\PinchDraw.cs" />
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\SpawnBalls.cs" />
     <Compile Include="Assets\Proba1.cs" />
+    <Compile Include="Assets\VirtualniSlideri.cs" />
     <Compile Include="Assets\trigger.cs" />
   </ItemGroup>
   <ItemGroup>
