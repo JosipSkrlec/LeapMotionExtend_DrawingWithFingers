@@ -77,8 +77,9 @@ namespace Leap.Unity.DetectionExamples {
         public bool PromjenaBojeSvakihPetSekundi;
         public bool PromjenaBojePostepeno;
         public bool PromjenaBojeSliders;
-        public bool PromjenaBojeSSvirtualnimSliderima;
-        // TODO - razdaljina od leap-a takva boja!
+        public bool PromjenaBojeDuga;
+        public bool PromjenaBojeSvirtualnimSliderima;
+
         public GameObject ShowColor;
         public GameObject PanelSaSLiderima;
 
@@ -96,19 +97,33 @@ namespace Leap.Unity.DetectionExamples {
         public static float virtualTempR = 0.0f;
         public static float virtualTempG = 0.0f;
         public static float virtualTempB = 0.0f;
+        public static float virtualTempSize = 0.0f;
 
 
         void Update() {
             // DODANO NAKNADNO
             vrijeme += Time.deltaTime;
-            if (PromjenaBojeSSvirtualnimSliderima == true)
+            if (vrijeme > 0.5 && PromjenaBojeDuga == true)
+            {
+                float R = Random.Range(1,254);
+                float G = Random.Range(1,254);
+                float B = Random.Range(1,254);
+
+                _drawColor.r = R / 255;
+                _drawColor.g = G / 255;
+                _drawColor.b = B / 255;
+
+            }
+            if (PromjenaBojeSvirtualnimSliderima == true)
             {
                 PanelSaSLiderima.gameObject.SetActive(true);
                 _drawColor.r = virtualTempR;
                 _drawColor.g = virtualTempG;
                 _drawColor.b = virtualTempB;
+
+                _drawRadius = virtualTempSize;
             }
-            else if (PromjenaBojeSSvirtualnimSliderima == false)
+            else if (PromjenaBojeSvirtualnimSliderima == false)
             {
                 PanelSaSLiderima.gameObject.SetActive(false);
             }
@@ -137,6 +152,7 @@ namespace Leap.Unity.DetectionExamples {
                 SizeSlider.gameObject.SetActive(false);
             }
 
+
             //
 
 
@@ -164,6 +180,7 @@ namespace Leap.Unity.DetectionExamples {
             TempR = RBojaSlider.value;
             TempG = GBojaSlider.value;
             TempB = BBojaSlider.value;
+
             TempSize = SizeSlider.value;
 
             _drawColor.r = TempR / 255;
@@ -214,10 +231,11 @@ namespace Leap.Unity.DetectionExamples {
                 {
                   G += 15;
                 }
-                _drawColor.g = G / 255;
-                _drawColor.r = R / 255;
-                _drawColor.b = B / 255;
-                _drawColor.a = A / 255;
+
+            _drawColor.r = R / 255;
+            _drawColor.g = G / 255;
+            _drawColor.b = B / 255;
+            _drawColor.a = A / 255;
 
             }
         //

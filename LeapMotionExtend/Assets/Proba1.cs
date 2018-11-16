@@ -19,17 +19,6 @@ public class Proba1 : MonoBehaviour
     void Update()
     {
 
-        //if (Kocka.transform.position.x != 0 || Kocka.transform.position.y != 0.311f || Kocka.transform.position.z !=0)
-        //{
-        //    Debug.Log("asdasd");
-        //    Kocka.transform.position = new Vector3(0.0f, 0.311f, 0.0f);
-        //}
-        //if (Kocka.transform.rotation.x != 0 || Kocka.transform.rotation.y != 0 || Kocka.transform.rotation.z != 0)
-        //{
-        //    Debug.Log("asdasd");
-        //    Kocka.transform.rotation = Quaternion.identity;
-        //}
-
     }
 
     private void OnTriggerEnter(Collider other)
