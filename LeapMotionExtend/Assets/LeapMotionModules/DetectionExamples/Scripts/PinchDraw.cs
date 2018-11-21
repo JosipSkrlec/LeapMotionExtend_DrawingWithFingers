@@ -62,6 +62,24 @@ namespace Leap.Unity.DetectionExamples {
         }
 
         void Start() {
+            if (Loptice == false)
+            {
+                KretanjeKosare.igra = false;
+            }
+            else
+            {
+                KretanjeKosare.igra = true;
+            }
+            if (Kosara == false)
+            {
+                KretanjeKosare.kosaraa = false;
+            }
+            else
+            {
+                KretanjeKosare.kosaraa = true;
+            }
+
+
           _drawStates = new DrawState[_pinchDetectors.Length];
           for (int i = 0; i < _pinchDetectors.Length; i++) {
             _drawStates[i] = new DrawState(this);
@@ -74,11 +92,16 @@ namespace Leap.Unity.DetectionExamples {
         float B = 0.0f;
         float A = 0.0f;
 
+        public GameObject LopticaCrvena;
+        public GameObject LopticaPlava;
+
         public bool PromjenaBojeSvakihPetSekundi;
         public bool PromjenaBojePostepeno;
         public bool PromjenaBojeSliders;
         public bool PromjenaBojeDuga;
         public bool PromjenaBojeSvirtualnimSliderima;
+        public bool Loptice;
+        public bool Kosara;
 
         public GameObject ShowColor;
         public GameObject PanelSaSLiderima;
@@ -99,15 +122,19 @@ namespace Leap.Unity.DetectionExamples {
         public static float virtualTempB = 0.0f;
         public static float virtualTempSize = 0.0f;
 
+        public static Vector3 PozicijaPalmaLijevaRuka;
+        public static Vector3 PozicijaPalmaDesnaRuka;
 
-        void Update() {
+
+        void Update()
+        {
             // DODANO NAKNADNO
             vrijeme += Time.deltaTime;
             if (vrijeme > 0.5 && PromjenaBojeDuga == true)
             {
-                float R = Random.Range(1,254);
-                float G = Random.Range(1,254);
-                float B = Random.Range(1,254);
+                float R = Random.Range(1, 254);
+                float G = Random.Range(1, 254);
+                float B = Random.Range(1, 254);
 
                 _drawColor.r = R / 255;
                 _drawColor.g = G / 255;
@@ -132,7 +159,7 @@ namespace Leap.Unity.DetectionExamples {
             {
                 PromjeniBojuSvaihPetSek();
                 vrijeme = 0.0f;
-            }            
+            }
             if (vrijeme > 0.5 && PromjenaBojePostepeno == true)
             {
                 PromjeniBojuSvaihPetSek2();
@@ -156,22 +183,66 @@ namespace Leap.Unity.DetectionExamples {
             //
 
 
-            for (int i = 0; i < _pinchDetectors.Length; i++) {
-            var detector = _pinchDetectors[i];
-            var drawState = _drawStates[i];
+            for (int i = 0; i < _pinchDetectors.Length; i++)
+            {
+                #region Za Crtanje
+                if (Loptice == false)
+                {
+                    var detector = _pinchDetectors[i];
+                    var drawState = _drawStates[i];
 
-            if (detector.DidStartPinch) {
-              drawState.BeginNewLine();
-            }
+                    if (detector.DidStartPinch)
+                    {
+                        drawState.BeginNewLine();
+                    }
 
-            if (detector.DidEndPinch) {
-              drawState.FinishLine();
-            }
+                    if (detector.DidEndPinch)
+                    {
+                        drawState.FinishLine();
+                    }
 
-            if (detector.IsPinching) {
-              drawState.UpdateLine(detector.Position);
-            }
-          }
+                    if (detector.IsPinching)
+                    {
+                        drawState.UpdateLine(detector.Position);
+                    }
+                }
+               
+                #endregion
+
+                #region Za Pucanje
+
+                if (Loptice == true)
+                {
+                    var detector = _pinchDetectors[i];                   
+
+                    if (detector.DidStartPinch)
+                    {
+                        if (PozicijaPalmaLijevaRuka.x != 0.0f)
+                        {
+                            Instantiate(LopticaCrvena, PozicijaPalmaLijevaRuka, Quaternion.identity);
+                        }
+                        if (PozicijaPalmaDesnaRuka.x != 0.0f)
+                        {
+                            Instantiate(LopticaPlava, PozicijaPalmaDesnaRuka, Quaternion.identity);
+                        }
+                        PozicijaPalmaDesnaRuka = new Vector3(0, 0, 0);
+                        PozicijaPalmaLijevaRuka = new Vector3(0, 0, 0);
+
+                    }
+                }
+
+                #endregion
+
+                
+
+
+            }// for petlja
+        }// update metoda
+
+
+        void SpawnBullet()
+        {
+
         }
 
         // DODANO NAKNADNO
@@ -188,6 +259,7 @@ namespace Leap.Unity.DetectionExamples {
             _drawColor.b = TempB / 255;
 
             _drawRadius = TempSize * 0.001f;
+
             ShowColor.GetComponent<Renderer>().material.color = new Color(TempR / 255, TempG / 255, TempB / 255); 
         }
 

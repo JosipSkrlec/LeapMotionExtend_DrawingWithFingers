@@ -597,6 +597,7 @@ public class LeapDohvatPodataka : MonoBehaviour
                     KordinateIzTrenutnogRacunala = KordinateIzTrenutnogRacunala - hh.PalmPosition.x;
                     //Debug.Log("LIJEVA ruka trenutni podaci: " + KordinateIzTrenutnogRacunala);
                     lijevarukatrenutni.Add(hh);
+                    Leap.Unity.DetectionExamples.PinchDraw.PozicijaPalmaLijevaRuka = new Vector3(hh.PalmPosition.x,hh.PalmPosition.y,hh.PalmPosition.z);
 
                 }
                 else if (!hh.IsLeft)
@@ -604,6 +605,7 @@ public class LeapDohvatPodataka : MonoBehaviour
                     KordinateIzTrenutnogRacunala1 = KordinateIzTrenutnogRacunala1 - hh.PalmPosition.x;
                     //Debug.Log("DESNA ruka trenutni podaci: " + KordinateIzTrenutnogRacunala1);
                     desnarukatrenutni.Add(hh);
+                    Leap.Unity.DetectionExamples.PinchDraw.PozicijaPalmaDesnaRuka = new Vector3(hh.PalmPosition.x, hh.PalmPosition.y, hh.PalmPosition.z);
                 }
 
             }
@@ -671,6 +673,20 @@ public class LeapDohvatPodataka : MonoBehaviour
         {
             // izvodi ukoliko je data == null tj. ukoliko konekcija nije uspostavljena
             IscrtajRuke(currentFrame.Hands, zgloboviIKostiLeap, true);
+
+            foreach (Hand hh in currentFrame.Hands)
+            {
+                if (hh.IsLeft)
+                {
+                    Leap.Unity.DetectionExamples.PinchDraw.PozicijaPalmaLijevaRuka = new Vector3(hh.PalmPosition.x, hh.PalmPosition.y, hh.PalmPosition.z);
+
+                }
+                else if (!hh.IsLeft)
+                {
+                    Leap.Unity.DetectionExamples.PinchDraw.PozicijaPalmaDesnaRuka = new Vector3(hh.PalmPosition.x, hh.PalmPosition.y, hh.PalmPosition.z);
+                }
+
+            }
         }
 
     } // Update
